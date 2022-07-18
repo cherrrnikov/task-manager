@@ -1,0 +1,77 @@
+*
+    padding: 0
+    margin: 0
+    border: 0
+    box-sizing: border-box
+    -moz-box-sizing: border-box
+    -webkit-box-sizing: border-box
+
+    &:before, &:after
+        box-sizing: border-box
+        -moz-box-sizing: border-box
+        -webkit-box-sizing: border-box
+
+@font-face
+    font-family: 'Raleway'
+    src: url("../fonts/Raleway-ExtraBold.woff") format('woff'),
+    url("../fonts/Raleway-ExtraBold.woff2") format('woff2')
+@font-face
+    font-family: 'Raleway-Light'
+    src: url("../fonts/Raleway-Light.woff") format('woff'),
+    url("../fonts/Raleway-Light.woff2") format('woff2')
+@font-face
+    font-family: 'Ramabhadra'
+    src: url("../fonts/Ramabhadra-Regular.woff") format('woff'),
+    url("../fonts/Ramabhadra-Regular.woff2") format('woff2')
+
+\:focus, :active
+    outline: none
+
+a
+    &:focus, &:active
+        outline: none
+
+nav, footer, header, aside
+    display: block
+
+html, body
+    height: 100%
+    width: 100%
+    font-size: 100%
+    font-size: 14px
+    line-height: 1
+    -ms-text-size-adjust: 100%
+    -moz-text-size-adjust: 100%
+    -webkit-text-size-adjust: 100%
+
+input, button, textarea
+    font-family: inherit
+
+input::-ms-clear
+    display: none
+
+button
+    cursor: pointer
+
+    &::-moz-focus-inner
+        border: none
+        padding: 0
+
+a
+    text-decoration: none
+
+    &:visited, &:hover
+        text-decoration: none
+
+ul li
+    list-style: none
+
+img
+    vertical-align: top
+body
+    font-family: "Ramabhadra", 'Open-Sans', sans-serif
+    background-color: $pink
+    margin: 0
+.container
+    max-width: 921px
+    margin: auto
