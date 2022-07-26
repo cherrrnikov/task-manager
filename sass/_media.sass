@@ -1,0 +1,141 @@
+@media screen and (max-width: 990px)
+    .container
+        max-width: 760px
+    .tasks
+        &-add
+            &__priorities
+                min-width: 55%
+                &-priority
+                    width: 90px
+        &-container
+            width: 100%
+@media screen and (max-width: 800px)
+    .header
+        &-titles
+            &__title
+                font-size: 35px
+            &__subtitle
+                font-size: 18px
+    .container
+        max-width: 90%
+    .tasks
+        &-add
+            &__custom
+                width: 80%
+            &__priorities
+                &-priority
+                    width: 5em
+            &__input
+                font-size: 15px
+            &__date
+                &-input
+                    font-size: 15px
+                    max-width: 120px
+        &-container
+            &__text
+                font-size: 15px
+            &__status
+                width: 5em
+@media screen  and (max-width: 685px)
+    .tasks
+        &-add
+            flex-direction: column
+            align-items: flex-end
+            &__add
+                font-size: 50px
+                min-height: 100%
+                max-height: 100%
+            &__input
+                margin-bottom: 20px
+            &__calendar
+                width: 30px
+                height: 30px
+            &__custom
+                width: 100%
+                display: flex
+                flex-direction: column
+                align-items: center
+                margin-bottom: 20px
+            &__choose
+                width: 100%
+            &__date
+                margin-right: 0
+                max-width: 100%
+            &__priorities
+                max-width: 100%
+
+    .header
+        &-titles
+            &__title
+                font-size: 25px
+            &__subtitle
+                font-size: 15px
+@media screen and (max-width: 558px)
+    .tasks
+        &-add
+            width: 100%
+            &__input
+                font-size: 12px
+            &__date
+                margin-bottom: 20px
+                &-input
+                    font-size: 12px
+                    max-width: 100px
+                    padding: 0 10px
+            &__priorities
+                max-width: 50%
+                &-priority
+                    width: 4em
+            &__add
+                padding: 10px
+                font-size: 40px
+            &__choose
+                flex-direction: column
+        &-container
+            &__editing
+                min-width: 120px
+                &-icon
+                    width: 20px
+                    height: 20px
+            &__date
+                font-size: 12px
+                margin-right: 18px
+            &__status
+                width: 4em
+            &__text
+                font-size: 12px
+            &__task
+                flex-direction: column
+            &__info
+                margin-bottom: 20px
+            &__editing
+                justify-content: flex-end
+                &-btn
+                    margin-right: 20px
+@media screen and (max-width: 414px)
+    .header
+        &-titles
+            &__title
+                font-size: 20px
+    .tasks
+        &-add
+            align-items: center
+            &__choose
+                align-items: center
+            &__priorities
+                order: -1
+                margin-bottom: 20px
+            &__date
+                order: 0
+                margin-bottom: 0
+            &__calendar
+                display: none
+            &__add
+                width: 100px
+        &-container
+            &__task
+                padding: 19px
+                align-items: flex-start
+                width: 100%
+            &__calendar
+                display: none

@@ -23,14 +23,14 @@
         </header>
         <section class="tasks">
             <div class="container">
-                <div class="tasks-add">
-                    <form action="#" class="tasks-add__form">
-                        <div class="tasks-add__custom">
-                            <input
-                                type="text"
-                                class="tasks-add__input"
-                                placeholder="Print what you want to do..."
-                            />
+                <form action="#" class="tasks-add">
+                    <div class="tasks-add__custom">
+                        <input
+                            type="text"
+                            class="tasks-add__input"
+                            placeholder="Print what you want to do..."
+                        />
+                        <div class="tasks-add__choose">
                             <div class="tasks-add__date">
                                 <img
                                     src="img/calendar.svg"
@@ -46,25 +46,27 @@
                             <div class="tasks-add__priorities">
                                 <div
                                     data-priority="important"
-                                    class="tasks-add__priority tasks-add__important"
+                                    class="tasks-add__priorities-priority tasks-add__priorities-important"
                                 ></div>
                                 <div
                                     data-priority="medium"
-                                    class="tasks-add__priority tasks-add__medium"
+                                    class="tasks-add__priorities-priority tasks-add__priorities-medium"
                                 ></div>
                                 <div
                                     data-priority="unimportant"
-                                    class="tasks-add__priority tasks-add__unimportant"
+                                    class="tasks-add__priorities-priority tasks-add__priorities-unimportant"
                                 ></div>
                             </div>
                         </div>
-                        <button class="tasks-add__add" type="submit">+</button>
-                    </form>
-                </div>
+                    </div>
+                    <button class="tasks-add__add" type="submit">+</button>
+                </form>
                 <div class="tasks-container">
                     <div class="tasks-container__task">
                         <div class="tasks-container__info">
-                            <p class="tasks-container__text">Wash dishes</p>
+                            <p class="tasks-container__text">
+                                Wash dishes alkdjgf; okasjf;a .skjdf;lksaj;lfks
+                            </p>
                             <div class="tasks-container__deadline">
                                 <img
                                     src="img/calendar-mini.svg"
@@ -74,8 +76,8 @@
                                 <span class="tasks-container__date"
                                     >09/02/22</span
                                 >
+                                <div class="tasks-container__status"></div>
                             </div>
-                            <div class="tasks-container__status"></div>
                         </div>
                         <div class="tasks-container__editing">
                             <button
@@ -120,6 +122,64 @@
                             </button>
                         </div>
                     </div>
+                    <!-- <div class="tasks-container__task">
+                        <div class="tasks-container__info">
+                            <p class="tasks-container__text">Wash dishes</p>
+                            <div class="tasks-container__deadline">
+                                <img
+                                    src="img/calendar-mini.svg"
+                                    alt="Date"
+                                    class="tasks-container__calendar"
+                                />
+                                <span class="tasks-container__date"
+                                    >09/02/22</span
+                                >
+                                <div class="tasks-container__status"></div>
+                            </div>
+                        </div>
+                        <div class="tasks-container__editing">
+                            <button
+                                data-edit="delete"
+                                class="tasks-container__editing-btn"
+                            >
+                                <img
+                                    src="img/delete.svg"
+                                    alt=""
+                                    class="tasks-container__editing-icon"
+                                />
+                            </button>
+                            <button
+                                data-edit="edit"
+                                class="tasks-container__editing-btn"
+                            >
+                                <img
+                                    src="img/edit.svg"
+                                    alt=""
+                                    class="tasks-container__editing-icon"
+                                />
+                            </button>
+                            <button
+                                data-edit="highlight"
+                                class="tasks-container__editing-btn"
+                            >
+                                <img
+                                    src="img/highlight.svg"
+                                    alt=""
+                                    class="tasks-container__editing-icon"
+                                />
+                            </button>
+                            <button
+                                data-edit="done"
+                                class="tasks-container__editing-btn"
+                            >
+                                <img
+                                    src="img/done.svg"
+                                    alt=""
+                                    class="tasks-container__editing-icon"
+                                />
+                            </button>
+                        </div>
+                    </div> -->
                 </div>
             </div>
         </section>

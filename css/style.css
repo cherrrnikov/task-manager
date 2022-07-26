@@ -85,14 +85,52 @@ img {
 }
 
 body {
+  overflow: hidden;
   font-family: "Ramabhadra", 'Open-Sans', sans-serif;
-  background-color: #FF58E4;
+  background-color: rgba(255, 88, 228, 0.69);
   margin: 0;
+}
+
+body::before {
+  content: '';
+  width: 441px;
+  height: 441px;
+  background-color: #D9D9D9;
+  border-radius: 50%;
+  position: fixed;
+  top: -270px;
+  right: -170px;
+  z-index: -1;
+  opacity: 0.5;
+}
+
+body::after {
+  content: '';
+  width: 441px;
+  height: 441px;
+  background-color: #D9D9D9;
+  border-radius: 50%;
+  position: fixed;
+  bottom: -60px;
+  left: -370px;
+  z-index: -1;
+  opacity: 0.5;
 }
 
 .container {
   max-width: 921px;
+  width: 100%;
   margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .header {
@@ -101,6 +139,7 @@ body {
 }
 
 .header-titles {
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -113,6 +152,7 @@ body {
           align-items: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  margin-bottom: 28px;
 }
 
 .header-titles__title {
@@ -128,4 +168,411 @@ body {
   color: #000;
   font-weight: lighter;
   font-size: 21px;
+}
+
+.tasks {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.tasks-add {
+  width: 96%;
+  background-color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 8px;
+  padding: 29px;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  margin-bottom: 25px;
+}
+
+.tasks-add__input {
+  width: 100%;
+  border-radius: 8px;
+  background-color: rgba(217, 217, 217, 0.32);
+  color: rgba(0, 0, 0, 0.31);
+  padding: 3px 14px;
+  margin-bottom: 14px;
+  font-size: 20px;
+}
+
+.tasks-add__custom {
+  width: 85%;
+}
+
+.tasks-add__choose {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.tasks-add__date {
+  max-width: 224px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.tasks-add__date-input {
+  padding: 0 22px;
+  background-color: rgba(217, 217, 217, 0.32);
+  color: rgba(0, 0, 0, 0.31);
+  max-width: 175px;
+  font-size: 20px;
+  text-align: center;
+  border-radius: 8px;
+}
+
+.tasks-add__calendar {
+  margin-right: 11px;
+}
+
+.tasks-add__priorities {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.tasks-add__priorities-priority {
+  width: 119px;
+  height: 21px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+.tasks-add__priorities-priority:last-child {
+  margin-right: 0;
+}
+
+.tasks-add__priorities-important {
+  background-color: rgba(255, 0, 0, 0.65);
+}
+
+.tasks-add__priorities-medium {
+  background-color: rgba(250, 255, 0, 0.65);
+}
+
+.tasks-add__priorities-unimportant {
+  background-color: rgba(0, 255, 56, 0.65);
+}
+
+.tasks-add__add {
+  border-radius: 8px;
+  font-size: 70px;
+  font-weight: bold;
+  background-color: #941D8F;
+  color: #fff;
+  padding: 20px;
+  line-height: 30px;
+  min-height: 94px;
+  max-height: 94px;
+}
+
+.tasks-container {
+  background-color: #941D8F;
+  border-radius: 8px;
+  width: 100%;
+  padding: 36px 40px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  grid-row-gap: 14px;
+}
+
+.tasks-container__task {
+  background-color: #D9D9D9;
+  border-radius: 8px;
+  padding: 23px 19px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.tasks-container__text {
+  font-size: 20px;
+  margin-bottom: 9px;
+}
+
+.tasks-container__deadline {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.tasks-container__calendar {
+  margin-right: 11px;
+}
+
+.tasks-container__date {
+  font-size: 15px;
+  color: rgba(0, 0, 0, 0.53);
+  margin-right: 29px;
+}
+
+.tasks-container__editing {
+  min-width: 163px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.tasks-container__editing-btn {
+  background-color: transparent;
+}
+
+.tasks-container__status {
+  width: 119px;
+  height: 21px;
+  border-radius: 8px;
+  background-color: rgba(255, 0, 0, 0.65);
+}
+
+@media screen and (max-width: 990px) {
+  .container {
+    max-width: 760px;
+  }
+  .tasks-add__priorities {
+    min-width: 55%;
+  }
+  .tasks-add__priorities-priority {
+    width: 90px;
+  }
+  .tasks-container {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .header-titles__title {
+    font-size: 35px;
+  }
+  .header-titles__subtitle {
+    font-size: 18px;
+  }
+  .container {
+    max-width: 90%;
+  }
+  .tasks-add__custom {
+    width: 80%;
+  }
+  .tasks-add__priorities-priority {
+    width: 5em;
+  }
+  .tasks-add__input {
+    font-size: 15px;
+  }
+  .tasks-add__date-input {
+    font-size: 15px;
+    max-width: 120px;
+  }
+  .tasks-container__text {
+    font-size: 15px;
+  }
+  .tasks-container__status {
+    width: 5em;
+  }
+}
+
+@media screen and (max-width: 685px) {
+  .tasks-add {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+  }
+  .tasks-add__add {
+    font-size: 50px;
+    min-height: 100%;
+    max-height: 100%;
+  }
+  .tasks-add__input {
+    margin-bottom: 20px;
+  }
+  .tasks-add__calendar {
+    width: 30px;
+    height: 30px;
+  }
+  .tasks-add__custom {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-bottom: 20px;
+  }
+  .tasks-add__choose {
+    width: 100%;
+  }
+  .tasks-add__date {
+    margin-right: 0;
+    max-width: 100%;
+  }
+  .tasks-add__priorities {
+    max-width: 100%;
+  }
+  .header-titles__title {
+    font-size: 25px;
+  }
+  .header-titles__subtitle {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 558px) {
+  .tasks-add {
+    width: 100%;
+  }
+  .tasks-add__input {
+    font-size: 12px;
+  }
+  .tasks-add__date {
+    margin-bottom: 20px;
+  }
+  .tasks-add__date-input {
+    font-size: 12px;
+    max-width: 100px;
+    padding: 0 10px;
+  }
+  .tasks-add__priorities {
+    max-width: 50%;
+  }
+  .tasks-add__priorities-priority {
+    width: 4em;
+  }
+  .tasks-add__add {
+    padding: 10px;
+    font-size: 40px;
+  }
+  .tasks-add__choose {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .tasks-container__editing {
+    min-width: 120px;
+  }
+  .tasks-container__editing-icon {
+    width: 20px;
+    height: 20px;
+  }
+  .tasks-container__date {
+    font-size: 12px;
+    margin-right: 18px;
+  }
+  .tasks-container__status {
+    width: 4em;
+  }
+  .tasks-container__text {
+    font-size: 12px;
+  }
+  .tasks-container__task {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .tasks-container__info {
+    margin-bottom: 20px;
+  }
+  .tasks-container__editing {
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
+  .tasks-container__editing-btn {
+    margin-right: 20px;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .header-titles__title {
+    font-size: 20px;
+  }
+  .tasks-add {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .tasks-add__choose {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .tasks-add__priorities {
+    -webkit-box-ordinal-group: 0;
+        -ms-flex-order: -1;
+            order: -1;
+    margin-bottom: 20px;
+  }
+  .tasks-add__date {
+    -webkit-box-ordinal-group: 1;
+        -ms-flex-order: 0;
+            order: 0;
+    margin-bottom: 0;
+  }
+  .tasks-add__calendar {
+    display: none;
+  }
+  .tasks-add__add {
+    width: 100px;
+  }
+  .tasks-container__task {
+    padding: 19px;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    width: 100%;
+  }
+  .tasks-container__calendar {
+    display: none;
+  }
 }
