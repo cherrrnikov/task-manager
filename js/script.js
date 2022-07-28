@@ -4,11 +4,11 @@ const addDate = document.querySelector(".tasks-add__date-input");
 const addPriorityContainer = document.querySelector(".tasks-add__priorities");
 const checkboxes = [...document.querySelectorAll(".priority-checkbox")];
 const tasksContainer = document.querySelector(".tasks-container");
-const tasksEdit = document.querySelector(".tasks-container__editing");
 let tasks = [];
 
 class Task {
     _parentElement = tasksContainer;
+    _task;
     constructor(title, date, priority) {
         this.title = title;
         this.date = date;
@@ -16,12 +16,27 @@ class Task {
     }
     render() {
         const markup = this._generateMarkup();
-        this._parentElement.insertAdjacentHTML("afterbegin", markup);
+        this._parentElement.appendChild(markup);
     }
+    deleteTask() {
+        this._task.addEventListener("click", (e) => {
+            const btn = e.target.closest(".tasks-container__editing-btn");
+            const ourTasks = [...this._parentElement.children];
+            if (btn.dataset.edit === "delete") {
+                this._task.remove();
+                tasks.splice(ourTasks.indexOf(this._task), 1);
+                console.log(tasks);
+            } else {
+                return;
+            }
+        });
+    }
+
     _generateMarkup() {
-        return `
-        <div class="tasks-container__task">
-            <div class="tasks-container__info">
+        this._task = document.createElement("div");
+        this._task.classList.add("tasks-container__task");
+        const html = `
+        <div class="tasks-container__info">
                 <p class="tasks-container__text">
                     ${this.title}
                 </p>
@@ -34,7 +49,7 @@ class Task {
                     <span class="tasks-container__date"
                         >${this.date}</span
                     >
-                    <div class="tasks-container__status"></div>
+                    <div class="tasks-add__priorities-priority tasks-add__priorities-${this.priority}"></div>
                 </div>
             </div>
             <div class="tasks-container__editing">
@@ -78,9 +93,10 @@ class Task {
                         class="tasks-container__editing-icon"
                     />
                 </button>
-            </div>
         </div>
         `;
+        this._task.innerHTML += html;
+        return this._task;
     }
 }
 
@@ -109,10 +125,11 @@ const createTask = function (e) {
     };
     tasks.push(task);
     addForm.reset();
-    const newTask = new Task(task.title, task.date, task.priority).render();
+    const newTask = new Task(task.title, task.date, task.priority);
+    newTask.render();
+    newTask.deleteTask();
     console.log(tasks);
 };
-const deleteTask = function () {};
 
 addForm.addEventListener("submit", createTask);
 addPriorityContainer.addEventListener("click", setCheck);
