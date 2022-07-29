@@ -354,6 +354,9 @@ body::after {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -595,5 +598,8 @@ body::after {
   }
   .tasks-container__calendar {
     display: none;
+  }
+  .tasks-container__date {
+    font-size: 10px;
   }
 }

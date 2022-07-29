@@ -6,6 +6,10 @@ const checkboxes = [...document.querySelectorAll(".priority-checkbox")];
 const tasksContainer = document.querySelector(".tasks-container");
 let tasks = [];
 
+const persistTasks = function () {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+};
+
 class Task {
     _parentElement = tasksContainer;
     _task;
@@ -25,7 +29,7 @@ class Task {
             if (btn.dataset.edit === "delete") {
                 this._task.remove();
                 tasks.splice(ourTasks.indexOf(this._task), 1);
-                console.log(tasks);
+                persistTasks();
             } else {
                 return;
             }
@@ -46,10 +50,14 @@ class Task {
                         alt="Date"
                         class="tasks-container__calendar"
                     />
-                    <span class="tasks-container__date"
+                    <span class="tasks-container__date" style="${
+                        this.date ? "" : "margin-right: 0"
+                    }"
                         >${this.date}</span
                     >
-                    <div class="tasks-add__priorities-priority tasks-add__priorities-${this.priority}"></div>
+                    <div class="tasks-add__priorities-priority tasks-add__priorities-${
+                        this.priority
+                    }"></div>
                 </div>
             </div>
             <div class="tasks-container__editing">
@@ -110,6 +118,23 @@ const setCheck = function (e) {
         e.target.parentElement.classList.add("checked");
     }
 };
+
+const resetCheck = function () {
+    checkboxes.forEach((item) => {
+        if (item.checked) {
+            item.parentElement.classList.add("checked");
+        } else {
+            item.parentElement.classList.remove("checked");
+        }
+    });
+};
+
+const renderTask = function (task) {
+    const newTask = new Task(task.title, task.date, task.priority);
+    newTask.render();
+    newTask.deleteTask();
+};
+
 const createTask = function (e) {
     e.preventDefault();
     let priority;
@@ -125,11 +150,23 @@ const createTask = function (e) {
     };
     tasks.push(task);
     addForm.reset();
-    const newTask = new Task(task.title, task.date, task.priority);
-    newTask.render();
-    newTask.deleteTask();
+    resetCheck();
     console.log(tasks);
+    persistTasks();
+    renderTask(task);
 };
+
+const init = function () {
+    const storage = localStorage.getItem("tasks");
+    if (storage) {
+        tasks = JSON.parse(storage);
+        tasks.forEach((task) => {
+            renderTask(task);
+        });
+    }
+};
+
+init();
 
 addForm.addEventListener("submit", createTask);
 addPriorityContainer.addEventListener("click", setCheck);
